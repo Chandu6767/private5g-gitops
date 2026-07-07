@@ -3,20 +3,37 @@ kind: Deployment
 metadata:
   name: gnb
   namespace: open5gs
+  labels:
+    app: gnb
+
 spec:
   replicas: 1
+
   selector:
     matchLabels:
       app: gnb
+
   template:
     metadata:
       labels:
         app: gnb
+
     spec:
       containers:
       - name: gnb
         image: free5gc/ueransim:latest
+        imagePullPolicy: Always
+
         command:
-          - nr-gnb
-          - -c
-          - /UERANSIM/config/open5gs-gnb.yaml
+        - /ueransim/nr-gnb
+        - -c
+        - /ueransim/config/open5gs-gnb.yaml
+
+        volumeMounts:
+        - name: ueransim-config
+          mountPath: /ueransim/config
+
+      volumes:
+      - name: ueransim-config
+        configMap:
+          name: ueransim-config
