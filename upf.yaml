@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: upf
+  namespace: open5gs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: upf
+  template:
+    metadata:
+      labels:
+        app: upf
+    spec:
+      containers:
+      - name: upf
+        image: openverso/open5gs:latest
+        command:
+        - /opt/open5gs/bin/open5gs-upfd
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: tun
+          mountPath: /dev/net/tun
+      volumes:
+      - name: tun
+        hostPath:
+          path: /dev/net/tun
+          type: CharDevice

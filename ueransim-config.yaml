@@ -1,0 +1,129 @@
+apiVersion: v1
+data:
+  open5gs-gnb.yaml: |
+    mcc: '901'
+    mnc: '70'
+
+    nci: '0x000000010'
+    idLength: 32
+    tac: 1
+
+    linkIp: 0.0.0.0
+    ngapIp: 0.0.0.0
+    gtpIp: 0.0.0.0
+
+    ignoreStreamIds: true
+
+    amfConfigs:
+      - address: amf
+        port: 38412
+
+    slices:
+      - sst: 1
+  open5gs-ue.yaml:open5gs-ue.yaml: |
+supi: 'imsi-901700000000001'
+
+mcc: '901'
+mnc: '70'
+
+key: '465B5CE8B199B49FAA5F0A2EE238A6BC'
+op: 'E8ED289DEBA952E4283B54E88E6183CA'
+opType: 'OPC'
+
+amf: '8000'
+imei: '356938035643803'
+
+gnbSearchList:
+- gnb
+
+integrity:
+IA1: true
+IA2: true
+IA3: true
+
+ciphering:
+EA1: true
+EA2: true
+EA3: true
+
+integrityMaxRate:
+uplink: full
+downlink: full
+
+uacAic:
+mps: false
+mcs: false
+
+uacAcc:
+normalClass: 0
+class11: false
+class12: false
+class13: false
+class14: false
+class15: false
+
+sessions:
+- type: IPv4
+apn: internet
+slice:
+sst: 1
+ "supi: 'imsi-901700000000001'\n\nmcc: '901'\nmnc: '70'\n\nkey:
+    '465B5CE8B199B49FAA5F0A2EE238A6BC'\nop: 'E8ED289DEBA952E4283B54E88E6183CA'\nopType:
+    'OPC'\n\namf: '8000'\nimei: '356938035643803'\n\ngnbSearchList:\n  - gnb\n\nintegrity:\n
+    \ IA1: true\n  IA2: true\n  IA3: true\n\nciphering:\n  EA1: true\n  EA2: true\n
+    \ EA3: true\n\nintegrityMaxRate:\n  uplink: full\n  downlink: full\n\nuacAic:\n
+    \ mps: false\n  mcs: false\n\nuacAcc:\n  normalClass: 0\n  \nsessions:\n  - type:
+  class11: false
+  class12: false
+  class13: false
+  class14: false
+  class15: false
+    IPv4\n    apn: internet\n    slice:\n      sst: 1\n"
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"open5gs-gnb.yaml":"mcc: '901'\nmnc: '70'\n\nnci: '0x000000010'\nidLength: 32\ntac: 1\n\nlinkIp: 0.0.0.0\nngapIp: 0.0.0.0\ngtpIp: 0.0.0.0\n\nignoreStreamIds: true\n\namfConfigs:\n  - address: amf\n    port: 38412\n\nslices:\n  - sst: 1\n","open5gs-ue.yaml":"supi: 'imsi-901700000000001'\n\nmcc: '901'\nmnc: '70'\n\nkey: '465B5CE8B199B49FAA5F0A2EE238A6BC'\nop: 'E8ED289DEBA952E4283B54E88E6183CA'\nopType: 'OPC'\n\namf: '8000'\nimei: '356938035643803'\n\ngnbSearchList:\n  - gnb\n\nintegrity:\n  IA1: true\n  IA2: true\n  IA3: true\n\nciphering:\n  EA1: true\n  EA2: true\n  EA3: true\n\nintegrityMaxRate:\n  uplink: full\n  downlink: full\n\nuacAic:\n  mps: false\n  mcs: false\n\nuacAcc:\n  normalClass: 0\n  \nsessions:\n  - type: IPv4\n    apn: internet\n    slice:\n      sst: 1\n"},"kind":"ConfigMap","metadata":{"annotations":{},"creationTimestamp":"2026-06-28T14:11:51Z","name":"ueransim-config","namespace":"open5gs","resourceVersion":"54662","uid":"acabf631-6ccc-45ff-a074-92269c099301"}}
+  class11: false
+  class12: false
+  class13: false
+  class14: false
+  class15: false
+  creationTimestamp: "2026-06-29T04:52:28Z"
+  name: ueransim-config
+  namespace: open5gs
+  resourceVersion: "57531"
+  uid: 08c72802-f53d-488b-af31-fcbdd5b0cc62
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

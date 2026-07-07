@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gnb
+  namespace: open5gs
+spec:
+  selector:
+    app: gnb
+  ports:
+    - protocol: SCTP
+      port: 38412
+      targetPort: 38412

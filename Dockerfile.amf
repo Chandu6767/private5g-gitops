@@ -1,0 +1,13 @@
+FROM ubuntu:22.04
+
+RUN apt update && apt install -y \
+    git \
+    build-essential \
+    meson \
+    ninja-build \
+    libsctp-dev \
+    libgnutls28-dev \
+    libgcrypt20-dev \
+    libssl-dev
+
+CMD ["/bin/bash"]

@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: upf
+  namespace: open5gs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: upf
+  template:
+    metadata:
+      labels:
+        app: upf
+    spec:
+      containers:
+      - name: upf
+        image: openverso/open5gs:latest
+        command:
+        - /opt/open5gs/bin/open5gs-upfd
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: dev-net-tun
+          mountPath: /dev/net/tun
+      volumes:
+      - name: dev-net-tun
+        hostPath:
+          path: /dev/net/tun
+          type: CharDevice
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: upf
+  namespace: open5gs
+spec:
+  selector:
+    app: upf
+  ports:
+  - name: pfcp
+    port: 8805
+    targetPort: 8805
+    protocol: UDP

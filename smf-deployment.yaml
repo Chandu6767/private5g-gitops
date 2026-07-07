@@ -1,0 +1,5 @@
+name: smf
+image: open5gs-smf
+Deploy:
+kubectl apply -f smf-deployment.yaml \
+-n open5gs
